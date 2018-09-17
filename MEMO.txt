@@ -1,0 +1,11 @@
+npm install -g node-dev
+
+
+mongo
+
+show dbs
+
+use hipbirdtest
+
+
+show collections

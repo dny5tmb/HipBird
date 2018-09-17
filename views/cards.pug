@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  table
+    each card, c_idx in cards
+      tr
+        td
+          p
+          |# #{c_idx} :
+          |#{card.filename} :
+          |#{card._id} 
+        td
+          img(src='/images/' + card.filename) 
+        td
+          form(method='post' action='/cards/'+card._id)
+            each t_idx in [0,1,2,3,4]
+              input( type='text' size=20 name='t'+t_idx value=card.texts[t_idx])
+            input(type='hidden' name='_method' value='put')
+            input(type='hidden' name='filename' value=card.filename)
+            input(type='submit')
